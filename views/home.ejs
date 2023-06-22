@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title><%=title%></title>
 </head>
@@ -43,11 +44,11 @@
         <div class="bg-gray-200 h-1">
         </div>
         <div class="my-5">
-            <button class="text-white bg-gray-500 text-2xl py-2 pl-2 pr-6 hover:bg-gray-700">
+            <button class="text-white bg-gray-500 text-2xl py-2 pl-2 pr-6 hover:bg-gray-700" type="submit">
                 <i class="fas fa-plus"></i>
                 ADD TASK
             </button>
-            <button class="text-white bg-red-500 text-2xl py-2 pl-2 pr-2 hover:bg-red-700">
+            <button class="text-white bg-red-500 text-2xl py-2 pl-2 pr-2 hover:bg-red-700" type="button" id="but1">
                 <i class="fas fa-trash"></i>
                 DELETE TASKS
             </button>
@@ -55,25 +56,32 @@
         </form>
         <div>
             <% for ( let i of arr){ %>
-                <div class="bg-gray-200 h-1">
-                </div>
-                <div class="grid grid-cols-4 gap-2 my-2 ">
-                    <input type="checkbox" class="h-4 my-3 w-4">
-                    <div class="flex flex-col flex-start col-span-2 justify-self-start">
-                        <span>
-                            <%= i.desc%>
-                        </span>
-                        <div>
-                            <i class="fas fa-calendar mx-2"></i>
-                            <%= i.date %>
-                        </div>
+                <div class="forthatitem" id="item-<%=i.id%>">
+                    <div class="bg-gray-200 h-1">
                     </div>
-                    <div class="bg-green-200 py-3 rounded-md">
-                        <%= i.cate%>
+                    <div class="grid grid-cols-4 gap-2 my-2 ">
+                        <input type="checkbox" class="h-4 my-3 w-4 madefor" name="box1" id="<%=i.id%>">
+                        <div class="flex flex-col flex-start col-span-2 justify-self-start">
+                            <span>
+                                <%= i.desc%>
+                            </span>
+                            <div>
+                                <i class="fas fa-calendar mx-2"></i>
+                                <%= i.date %>
+                            </div>
+                        </div>
+                        <div class="bg-green-200 py-3 rounded-md">
+                            <%= i.cate%>
+                        </div>
                     </div>
                 </div>
             <%}%>
         </div>
     </div>
+
+
+
+    <script type="text/javascript" src="/js/home.js"></script>
+
 </body>
 </html>

@@ -4,8 +4,6 @@ const mongoose = require('mongoose');
 
 const db = require('./config/mongoose');
 
-const list = require('./models/list');
-
 const path = require('path');
 
 const port = "8800";
@@ -18,6 +16,8 @@ app.use('/',require('./routes'))
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"/views/"));
+
+app.use(express.static('./assets'));
 
 
 app.listen(port,function(err){

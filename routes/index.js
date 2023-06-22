@@ -8,6 +8,8 @@ console.log("Router loaded ");
 
 router.get('/',home_controller.home);
 
-router.post('/create-item',home_controller.homepost)
+router.post('/create-item',home_controller.homepost);
+
+router.post('/delete-item',home_controller.homedelete);
 
 module.exports = router;
